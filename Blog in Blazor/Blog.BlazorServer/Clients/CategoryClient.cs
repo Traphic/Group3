@@ -1,4 +1,5 @@
-﻿using Blog.BlazorServer.Clients.Interfaces;
+﻿using System.Net.Http.Json;
+using Blog.BlazorServer.Clients.Interfaces;
 using Blog.BlazorServer.ViewModels;
 
 namespace Blog.BlazorServer.Clients
@@ -26,7 +27,7 @@ namespace Blog.BlazorServer.Clients
 
         public async Task<List<CategoryViewModel>> GetAssignedCategoriesAsync()
         {
-            return await GetAssignedCategoriesAsync();
+            return await _httpClient.GetFromJsonAsync<List<CategoryViewModel>>($"{BaseUrl}/assigned");
         }
     }
 }
