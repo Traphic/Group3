@@ -26,7 +26,7 @@ namespace Blog.BlazorServer.Clients
 
         public async Task<List<CategoryViewModel>> GetAssignedCategoriesAsync()
         {
-            return await GetAllAsync();
+            return await GetAssignedCategoriesAsync();
         }
     }
 }
