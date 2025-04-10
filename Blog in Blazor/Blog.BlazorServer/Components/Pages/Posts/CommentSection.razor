@@ -22,10 +22,21 @@
                                 </Authorized>
                             </AuthorizeView>
                         </div>
+                        <div>@if (comment.IsPositiveReaction)
+                            {
+                                <Icon Name="IconName.HandThumbsUp"></Icon>
+                            }
+                            else
+                            {
+                                <Icon Name="IconName.HandThumbsDown"></Icon>
+                            }
+                        </div>
                     </div>
                     <div class="comment-body">
                         @comment.Text
                     </div>
+                    
+
                 </div>
             }
         }

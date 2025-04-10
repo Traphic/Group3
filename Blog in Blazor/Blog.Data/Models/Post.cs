@@ -23,6 +23,6 @@ namespace Blog.Data.Models
 
         public List<Comment> Comments { get; set; }
 
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
     }
 }
