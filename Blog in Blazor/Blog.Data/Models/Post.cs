@@ -22,5 +22,7 @@ namespace Blog.Data.Models
         public List<PostCategory> PostCategories { get; set; }
 
         public List<Comment> Comments { get; set; }
+
+        public DateTime UpdatedDate { get; set; }
     }
 }
