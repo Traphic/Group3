@@ -79,7 +79,7 @@ namespace Blog.Business.Services
             var dbPost = await _dbContext.Posts
                 .Include(p => p.PostCategories)
                 .FirstOrDefaultAsync(p => p.Id == postDTO.Id);
-
+            dbPost.UpdatedDate = DateTime.UtcNow;
             _mapper.Map(postDTO, dbPost);
 
             await _dbContext.SaveChangesAsync();
