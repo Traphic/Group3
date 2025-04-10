@@ -4,6 +4,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     width: 100%;
+    overflow: hidden;
 }
 
 @media (min-width: 480px) {
