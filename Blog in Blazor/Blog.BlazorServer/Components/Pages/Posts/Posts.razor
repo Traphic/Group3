@@ -38,7 +38,7 @@
                 <div class="card-body" style="position: relative;">
                     <h5 class="card-title">@post.Title</h5>
                     <p class="card-text">@post.ContentPreview</p>
-                    @if (post.CategoryDTOs != null && post.CategoryDTOs.Any())
+                    @if (post != null && post.CategoryDTOs != null && post.CategoryDTOs.Any())
                     {
                         <div class="mb-3">
                             <div class="selected-categories">
@@ -57,6 +57,11 @@
                 </div>
             </div>
         </div>
+    }
+
+    @if(posts.Count == 0)
+    {
+        <p>No posts</p>
     }
 </div>
 
