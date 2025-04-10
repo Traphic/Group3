@@ -1,10 +1,10 @@
 using Blazored.LocalStorage;
-using Blog.BlazorServer.Components;
-using Blog.BlazorServer.Clients.Interfaces;
-using Blog.BlazorServer.States;
-using Microsoft.AspNetCore.Components.Authorization;
 using Blog.BlazorServer.Clients;
 using Blog.BlazorServer.Clients.HttpHandlers;
+using Blog.BlazorServer.Clients.Interfaces;
+using Blog.BlazorServer.Components;
+using Blog.BlazorServer.States;
+using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +39,7 @@ builder.Services.AddScoped(sp =>
 
     var httpClient = new HttpClient(authHeaderHandler)
     {
-        BaseAddress = new Uri("https://localhost:51800")
+        BaseAddress = new Uri("https://localhost:51731")
     };
 
     return httpClient;
