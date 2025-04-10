@@ -21,7 +21,7 @@ namespace Blog.Business.Mappings
                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
                .ForMember(dest => dest.ContentPreview, opt => opt.MapFrom(src => GetContentPreview(src.Content)))
-               .ForMember(dest => dest.LastEditedDate, opt => opt.MapFrom(src => src.CreatedDate))
+               .ForMember(dest => dest.LastEditedDate, opt => opt.MapFrom(src => src.UpdatedDate.HasValue ? src.UpdatedDate.Value : src.CreatedDate))
                .ForMember(dest => dest.LastEditedBy, opt => opt.MapFrom(src => src.UpdatedBy ?? src.CreatedBy))
                .ForMember(dest => dest.CategoryDTOs, opt => opt.MapFrom(src => src.PostCategories.Select(pc => pc.Category).ToList()));
 
