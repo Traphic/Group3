@@ -49,6 +49,17 @@ namespace Blog.Business.Services
             return _mapper.Map<List<CategoryDTO>>(categories);
         }
 
+        public async Task<List<CategoryDTO>> GetOnlyAssignedCategories()
+        {
+            var categories = await _dbContext.Categories
+                .Include(c => c.PostCategories)
+                .ThenInclude(pc => pc.Post)
+                .Where(c => c.PostCategories.Count > 0)
+                .ToListAsync();
+
+            return _mapper.Map<List<CategoryDTO>>(categories);
+        }
+
         public async Task<CategoryDTO> GetByIdAsync(int id)
         {
             var category = await _dbContext.Categories.FindAsync(id);
@@ -77,7 +88,7 @@ namespace Blog.Business.Services
 
         public async Task<List<CategoryDTO>> GetAssignedCategoriesAsync()
         {
-            return await GetAllAsync();
+            return await GetOnlyAssignedCategories();
         }
     }
 }
