@@ -23,6 +23,13 @@
                         </li>
               
                 <AuthorizeView>
+                    <Authorized>
+                        <li class="nav-item">
+                            <NavLink class="nav-link" href="#">
+                                <span class="oi" aria-hidden="true"></span> Hi, @context.User.Identity?.Name
+                            </NavLink>
+                        </li>
+                    </Authorized>
                     <NotAuthorized>
                     <li class="nav-item">
                         <NavLink class="nav-link" href="login">
@@ -34,6 +41,11 @@
                             <span class="oi" aria-hidden="true"></span> Register
                         </NavLink>
                     </li>
+                        <li class="nav-item">
+                            <NavLink class="nav-link disabled" href="#">
+                                <span class="oi" aria-hidden="true"></span> You are not logged in
+                            </NavLink>
+                        </li>
                     </NotAuthorized>
                 </AuthorizeView>
             </ul>
